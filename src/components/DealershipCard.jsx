@@ -1,27 +1,32 @@
 // src/components/DealershipCard.jsx
-
 import React from 'react';
 
 const DealershipCard = ({ dealership, onUpdate, onDelete, canUpdate = false, canDelete = false }) => {
-  return (
-    <div className="card mb-3 d-flex flex-row" style={{ maxWidth: "540px" }}>
-      <div className="col-md-4">
-        <img src={dealership.image} className="img-fluid rounded-start" alt="dealership" />
-      </div>
-      <div className="col-md-8">
-        <div className="card-body">
-          <h5 className="card-title">{dealership.name}</h5>
-          <p className="card-text">{dealership.location}</p>
-          <p className="card-text">Phone: {dealership.contact.phone}</p>
-          {dealership.contact.email && <p className="card-text">Email: {dealership.contact.email}</p>}
+  const phoneNumber = dealership?.contact?.phone;
+  const email = dealership?.contact?.email;
 
-          {canUpdate && (
-            <button onClick={() => onUpdate(dealership._id)} className="btn btn-primary me-2">Update</button>
-          )}
-          
-          {canDelete && (
-            <button onClick={() => onDelete(dealership._id)} className="btn btn-danger">Delete</button>
-          )}
+  return (
+    <div className="card mb-3" style={{ maxWidth: "540px" }}>
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img src={dealership.image} className="img-fluid rounded-start" alt="dealership" />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body d-flex flex-column">
+            <h5 className="card-title">{dealership.name}</h5>
+            <p className="card-text">{dealership.location}</p>
+            {phoneNumber && <p className="card-text">Phone: {phoneNumber}</p>}
+            {email && <p className="card-text">Email: {email}</p>}
+            {/* Use mt-auto to push controls to the bottom */}
+            <div className="mt-auto ms-auto">
+              {canUpdate && (
+                <button onClick={() => onUpdate(dealership._id)} className="btn btn-primary me-2">Update</button>
+              )}
+              {canDelete && (
+                <button onClick={() => onDelete(dealership._id)} className="btn btn-danger">Delete</button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -29,6 +34,37 @@ const DealershipCard = ({ dealership, onUpdate, onDelete, canUpdate = false, can
 };
 
 export default DealershipCard;
+
+
+// import React from 'react';
+
+// const DealershipCard = ({ dealership, onUpdate, onDelete, canUpdate = false, canDelete = false }) => {
+//   return (
+//     <div className="card mb-3 d-flex flex-row" style={{ maxWidth: "540px" }}>
+//       <div className="col-md-4">
+//         <img src={dealership.image} className="img-fluid rounded-start" alt="dealership" />
+//       </div>
+//       <div className="col-md-8">
+//         <div className="card-body">
+//           <h5 className="card-title">{dealership.name}</h5>
+//           <p className="card-text">{dealership.location}</p>
+//           <p className="card-text">Phone: {dealership.contact.phone}</p>
+//           {dealership.contact.email && <p className="card-text">Email: {dealership.contact.email}</p>}
+
+//           {canUpdate && (
+//             <button onClick={() => onUpdate(dealership._id)} className="btn btn-primary me-2">Update</button>
+//           )}
+          
+//           {canDelete && (
+//             <button onClick={() => onDelete(dealership._id)} className="btn btn-danger">Delete</button>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DealershipCard;
 
 
 // // Example Parent Component

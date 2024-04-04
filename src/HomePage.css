@@ -1,9 +1,10 @@
 .home-banner {
     background-image: url('https://res.cloudinary.com/dxaiqsqy4/image/upload/v1712148516/final-project/Final-Project-Images/general-uploads/car-banner-image_fkfjhn.webp');
-    color: skyblue;
+ 
     padding: 100px 0;
     background-size: cover;
     background-position: center;
+    color: skyblue;
   }
   
   .banner-title {

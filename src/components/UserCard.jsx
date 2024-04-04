@@ -1,27 +1,29 @@
-// src/components/UserCard.jsx
-
 import React from 'react';
 
 const UserCard = ({ user, onUpdate, onDelete, canUpdate = false, canDelete = false }) => {
+  // Check if user data is null or undefined and return null or some placeholder
+  if (!user) {
+    // Optionally, return a loading spinner, a placeholder, or simply null
+    return null; // Or <div>Loading...</div>, for example
+  }
+
   return (
-    <div className="card mb-3 d-flex flex-row" style={{ maxWidth: "540px" }}>
-      <div className="col-md-4">
-        <img src={user.profilePicture || "https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg"} className="img-fluid rounded-start" alt={user.name} />
-      </div>
-      <div className="col-md-8">
-        <div className="card-body">
-          <h5 className="card-title">{user.name}</h5>
-          <p className="card-text">{user.email}</p>
-          <p className="card-text"><small className="text-muted">Privilege: {user.privilege}</small></p>
-          {user.dealership && <p className="card-text">Dealership ID: {user.dealership}</p>}
-          
-          {canUpdate && (
-            <button onClick={() => onUpdate(user)} className="btn btn-primary me-2">Update</button>
-          )}
-          
-          {canDelete && (
-            <button onClick={() => onDelete(user._id)} className="btn btn-danger">Delete</button>
-          )}
+    <div className="card mb-3" style={{ maxWidth: "540px" }}>
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img src={user.profilePicture || "https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg"} className="img-fluid rounded-start" alt={user.name} />
+        </div>
+        <div className="col-md-8 d-flex flex-column">
+          <div className="card-body">
+            <h5 className="card-title">{user.name}</h5>
+            <p className="card-text">{user.email}</p>
+            <p className="card-text"><small className="text-muted">Privilege: {user.privilege}</small></p>
+            {user.dealership && <p className="card-text">Dealership ID: {user.dealership._id}</p>}
+          </div>
+          <div className="mt-auto p-2 d-flex justify-content-end">
+            {canUpdate && <button onClick={() => onUpdate(user)} className="btn btn-primary me-2">Update</button>}
+            {canDelete && <button onClick={() => onDelete(user._id)} className="btn btn-danger">Delete</button>}
+          </div>
         </div>
       </div>
     </div>
@@ -29,6 +31,42 @@ const UserCard = ({ user, onUpdate, onDelete, canUpdate = false, canDelete = fal
 };
 
 export default UserCard;
+
+
+// // src/components/UserCard.jsx
+
+// import React from 'react';
+
+// const UserCard = ({ user, onUpdate, onDelete, canUpdate = false, canDelete = false }) => {
+//   return (
+//     <div className="card mb-3" style={{ maxWidth: "540px" }}>
+//       <div className="row g-0">
+//         <div className="col-md-4">
+//           <img src={user.profilePicture || "https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg"} className="img-fluid rounded-start" alt={user.name} />
+//         </div>
+//         <div className="col-md-8 d-flex flex-column">
+//           <div className="card-body">
+//             <h5 className="card-title">{user.name}</h5>
+//             <p className="card-text">{user.email}</p>
+//             <p className="card-text"><small className="text-muted">Privilege: {user.privilege}</small></p>
+//             {user.dealership && <p className="card-text">Dealership ID: {user.dealership._id}</p>}
+//           </div>
+//           <div className="mt-auto p-2 d-flex justify-content-end">
+//             {canUpdate && (
+//               <button onClick={() => onUpdate(user)} className="btn btn-primary me-2">Update</button>
+//             )}
+            
+//             {canDelete && (
+//               <button onClick={() => onDelete(user._id)} className="btn btn-danger">Delete</button>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default UserCard;
 
 
 

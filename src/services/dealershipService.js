@@ -4,8 +4,9 @@ import axios from 'axios';
 import { SERVER_URL } from './SERVER_URL';
 
 const getConfig = () => ({
-    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
 });
+
 
 export const fetchDealerships = () => {
     return axios.get(`${SERVER_URL}/dealerships`, getConfig());
