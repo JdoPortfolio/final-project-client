@@ -1,0 +1,25 @@
+.home-banner {
+    background-image: url('https://res.cloudinary.com/dxaiqsqy4/image/upload/v1712148516/final-project/Final-Project-Images/general-uploads/car-banner-image_fkfjhn.webp');
+    color: skyblue;
+    padding: 100px 0;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .banner-title {
+    font-weight: bold;
+    color: blue; /* Adjust based on your exact color */
+  }
+  
+  .banner-subtitle {
+    font-size: 20px;
+    margin-top: 20px;
+
+  }
+  
+  .about-us, .our-partners, .join-us {
+    padding: 60px 0;
+  }
+  
+  /* Add additional styling as needed */
+  

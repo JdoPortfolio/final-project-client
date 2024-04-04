@@ -1,6 +1,8 @@
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import ContextProviderWrapper from "./context/ContextProviderWrapper";
+import NavbarComponent from "./components/NavbarComponent";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -19,29 +21,25 @@ function App() {
   };
 
   return (
+
+    <ContextProviderWrapper>
     <div className="App">
-    
-      <Navbar />
+        {/* <Navbar /> */}
+        <NavbarComponent />
 
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
 
-        <Route element={<LoggedIn />}>
+          {/* <Route element={<LoggedIn />}></Route> */}
 
-
-
-        </Route>
-
-        <Route element={<NotLoggedIn />}>
-
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/login" element={<LoginPage />} />
-
-        </Route>
-
-      </Routes>
-
-    </div>
+          {/* <Route element={<NotLoggedIn />}>
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Route> */}
+        </Routes>
+      </div>
+    </ContextProviderWrapper>
+      
   );
 }
 
