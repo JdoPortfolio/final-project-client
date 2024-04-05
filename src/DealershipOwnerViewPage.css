@@ -1,0 +1,13 @@
+.dealership-owner-view .view-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .dealership-owner-view .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Additional styling for cards if needed */
+  

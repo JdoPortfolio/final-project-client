@@ -23,6 +23,10 @@ export const updateCar = (carId, carData) => {
     return axios.put(`${SERVER_URL}/cars/${carId}`, carData, getConfig());
 };
 
+export const fetchCarsByDealershipId = (dealershipId) => {
+    return axios.get(`${SERVER_URL}/cars/${dealershipId}`, getConfig());
+};
+
 export const deleteCar = (carId) => {
     return axios.delete(`${SERVER_URL}/cars/${carId}`, getConfig());
 };
