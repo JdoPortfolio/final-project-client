@@ -10,6 +10,7 @@ export const get = (route) => {
 };
 
 export const post = (route, body) => {
+  console.log("in post function", route, body, SERVER_URL)
   let token = localStorage.getItem("authToken");
 
   return axios.post(SERVER_URL + route, body, {

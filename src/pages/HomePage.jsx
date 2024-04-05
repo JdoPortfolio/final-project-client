@@ -21,6 +21,7 @@ const HomePage = () => {
       `"Working with KonduceAuto has opened up new avenues for us to connect with Spanish-speaking customers. Their dedicated subdomains have made car shopping accessible for many."`,
   };
 
+  console.log("dealerships in homepage", dealerships);
 
 
   // Loading indicator
@@ -69,7 +70,7 @@ const HomePage = () => {
             Meet Our Esteemed Partners – Their Success Stories with KonduceAuto
           </h2>
           {/* Dynamically generate partner sections here */}
-          {dealerships.map((dealership) => (
+          {dealerships && dealerships.map((dealership) => (
             <Row className="mb-5" key={dealership._id}>
               <Col lg={6} md={12}>
                 <DealershipCard

@@ -32,7 +32,7 @@ import { Navbar, Nav, Modal, Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../context/auth.context'; 
 import { post } from '../services/authService';
 
-const AdminNavbar = () => {
+const AdminNavbar = ({onDisplayChange}) => {
  const { logOutUser, isLoggedIn } = useContext(AuthContext);
 
   return (

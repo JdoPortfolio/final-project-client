@@ -6,18 +6,21 @@ import {
   createDealership,
   deleteDealership,
 } from '../services/dealershipService';
-
+import axios from 'axios'
 const DealershipContext = createContext();
 
 export const DealershipProvider = ({ children }) => {
-    const [dealerships, setDealerships] = useState([]);
+    const [dealerships, setDealerships] = useState(null);
     const [currentDealership, setCurrentDealership] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     // Standalone function to refresh/fetch dealerships data
     const refreshDealerships = () => {
         setIsLoading(true);
-        fetchDealerships().then(response => {
+        // axios.get("http://localhost:4000/dealerships")
+        fetchDealerships()
+        .then(response => {
+            console.log("response in d context fetchDealership", response)
             setDealerships(response.data);
             setIsLoading(false);
         }).catch(error => {
